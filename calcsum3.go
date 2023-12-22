@@ -1,14 +1,25 @@
 package main
 
-import (
-"fmt"
-)
-
-func calcSum(a, b, c float64) float64 {
-return a + b + c
-}
+import "fmt"
 
 func main() {
-result := calcSum(1.0, 2.0, 3.0)
-fmt.Println("Result: ", result)
+	var a, b, c int
+	fmt.Println("Введите значения a, b и c:")
+	fmt.Print("a = ")
+	fmt.Scanln(&a)
+	fmt.Print("b = ")
+	fmt.Scanln(&b)
+	fmt.Print("c = ")
+	fmt.Scanln(&c)
+
+	calcSum(&a, &b, &c)
+}
+
+func calcSum(a *int, b *int, c *int) {
+	NewA := *a
+	NewB := *b
+	*c = *a + *b
+
+	fmt.Println("Копия A: =", NewA)
+	fmt.Println("Копия B: =", NewB)
 }
